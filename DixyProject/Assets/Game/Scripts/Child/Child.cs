@@ -6,7 +6,9 @@ public class Child : MonoBehaviour,ICollectable
 {
     public void DoCollect()
     {
-        throw new System.NotImplementedException();
+        GameManager.Instance.PlayerController.MyChilds.Add(this);
+        transform.SetParent(GameManager.Instance.PlayerController.gameObject.transform);
+        transform.localPosition = new Vector3(0, 0, -GameManager.Instance.PlayerController.MyChilds.Count);
     }
 
     // Start is called before the first frame update
